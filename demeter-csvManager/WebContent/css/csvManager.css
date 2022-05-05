@@ -1,0 +1,43 @@
+.uploadTitle {
+    padding: 6px 58px;
+}
+.reportTitle {
+    padding: 6px 76px;
+    margin-left: 80;
+}
+input[type="file"] {
+    display: none;
+}
+.uploadFileLabel {
+    border: 1px solid #ccc;
+    background: #DDDD;
+    padding: 6px 66px;
+    cursor: pointer;
+    border-radius: .25rem;
+    
+}
+.submitForm {
+    border: 1px solid #ccc;
+    color: #fff;
+    background: #0069D9;
+    padding: 6px 16px;
+    cursor: pointer;
+    border-radius: .25rem;
+    
+}
+.clearFileList {
+    border: 1px solid #ccc;
+    background: #E2E2E2;
+    padding: 6px 16px;
+    cursor: pointer;
+    border-radius: .25rem;
+    
+}
+.clearReport {
+    border: 1px solid #ccc;
+    background: #E2E2E2;
+    padding: 6px 66px;
+    cursor: pointer;
+    border-radius: .25rem;
+    margin-left: 80;
+}
