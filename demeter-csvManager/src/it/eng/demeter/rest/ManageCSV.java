@@ -60,12 +60,24 @@ public class ManageCSV {
 	private static String conductivity2 = properties.getString("demeter.conductivity2");
 	private static String conductivity3 = properties.getString("demeter.conductivity3");
 	
+	private static String averageRuminationTime  = properties.getString("demeter.averageRuminationTime");
+	private static String averageRuminationTime1 = properties.getString("demeter.averageRuminationTime1");
+	private static String averageRuminationTime2 = properties.getString("demeter.averageRuminationTime2");
+	private static String averageRuminationTime3 = properties.getString("demeter.averageRuminationTime3");
+	
+	private static String averageIngestionTime  = properties.getString("demeter.averageIngestionTime");
+	private static String averageIngestionTime1 = properties.getString("demeter.averageIngestionTime1");
+	private static String averageIngestionTime2 = properties.getString("demeter.averageIngestionTime2");
+	private static String averageIngestionTime3 = properties.getString("demeter.averageIngestionTime3");
+	
 	private static String actualLameness = properties.getString("demeter.actualLameness");
 	private static String predictedLameness = properties.getString("demeter.predictedLameness");
 	private static String actualMastitis = properties.getString("demeter.actualMastitis");
 	private static String predictedMastitis = properties.getString("demeter.predictedMastitis");
 	private static String actualKetosis = properties.getString("demeter.actualKetosis");
 	private static String predictedKetosis = properties.getString("demeter.predictedKetosis");
+	private static String actualHeatStress = properties.getString("demeter.actualHeatStress");
+	private static String predictedHeatStress = properties.getString("demeter.predictedHeatStress");
 	
 	private static String actualQuality = properties.getString("demeter.actualQuality");
 	private static String predictedQuality = properties.getString("demeter.predictedQuality");
@@ -102,6 +114,11 @@ public class ManageCSV {
 	private static String ketosisFalsePositiveRate = properties.getString("demeter.ketosisFalsePositiveRate");
 	private static String ketosisPrecision = properties.getString("demeter.ketosisPrecision");
 	private static String ketosisAccuracy = properties.getString("demeter.ketosisAccuracy");
+	
+	private static String heatStressTruePositiveRate = properties.getString("demeter.heatStressTruePositiveRate");
+	private static String heatStressFalsePositiveRate = properties.getString("demeter.heatStressFalsePositiveRate");
+	private static String heatStressPrecision = properties.getString("demeter.heatStressPrecision");
+	private static String heatStressAccuracy = properties.getString("demeter.heatStressAccuracy");
 	
 	private static String rawTruePositiveRate = properties.getString("demeter.rawTruePositiveRate");
 	private static String rawFalsePositiveRate = properties.getString("demeter.rawFalsePositiveRate");
@@ -198,12 +215,20 @@ public class ManageCSV {
         	       String predictedKetosisValue = "";
         	       String actualMastitisValue = "";
         	       String predictedMastitisValue = "";
+        	       String actualHeatStressValue = "";
+        	       String predictedHeatStressValue = "";
         	       String conductivity1Value = "";
         	       String conductivity2Value = "";
         	       String conductivity3Value = "";
         	       String activity1Value = "";
         	       String activity2Value = "";
         	       String activity3Value = "";
+        	       String averageRuminationTime1Value = "";
+        	       String averageRuminationTime2Value = "";
+        	       String averageRuminationTime3Value = "";
+        	       String averageIngestionTime1Value = "";
+        	       String averageIngestionTime2Value = "";
+        	       String averageIngestionTime3Value = "";
         	       String lamenessTruePositiveRateValue = "";
         	       String lamenessFalsePositiveRateValue = "";
         	       String lamenessPrecisionValue = "";
@@ -216,6 +241,10 @@ public class ManageCSV {
         	       String ketosisFalsePositiveRateValue = "";
         	       String ketosisPrecisionValue = "";
         	       String ketosisAccuracyValue = "";
+        	       String heatStressTruePositiveRateValue = "";
+        	       String heatStressFalsePositiveRateValue = "";
+        	       String heatStressPrecisionValue = "";
+        	       String heatStressAccuracyValue = "";
         	       
         	       /*Recupero i valori dei campi*/
 	               for (int l = 0; l < fieldsValues.length; l++) { 
@@ -274,6 +303,12 @@ public class ManageCSV {
 		               if (fieldName.equalsIgnoreCase(predictedMastitis)){
 		            	   predictedMastitisValue = fieldsValues[l].replace("\"", "");
 		               }
+		               if (fieldName.equalsIgnoreCase(actualHeatStress)){
+		            	   actualHeatStressValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(predictedHeatStress)){
+		            	   predictedHeatStressValue = fieldsValues[l].replace("\"", "");
+		               }
 		               if (fieldName.equalsIgnoreCase(conductivity1)){
 		            	   conductivity1Value = fieldsValues[l].replace("\"", "");
 		               }
@@ -291,6 +326,24 @@ public class ManageCSV {
 		               }
 		               if (fieldName.equalsIgnoreCase(activity3)){
 		            	   activity3Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime1)){
+		            	   averageIngestionTime1Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime2)){
+		            	   averageIngestionTime2Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime3)){
+		            	   averageIngestionTime3Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime1)){
+		            	   averageRuminationTime1Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime2)){
+		            	   averageRuminationTime2Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime3)){
+		            	   averageRuminationTime3Value = fieldsValues[l].replace("\"", "");
 		               }
 		               if (fieldName.equalsIgnoreCase(lamenessTruePositiveRate)){
 		            	   lamenessTruePositiveRateValue = fieldsValues[l].replace("\"", "");
@@ -328,6 +381,18 @@ public class ManageCSV {
 		               if (fieldName.equalsIgnoreCase(ketosisAccuracy)){
 		            	   ketosisAccuracyValue = fieldsValues[l].replace("\"", "");
 		               }
+		               if (fieldName.equalsIgnoreCase(heatStressTruePositiveRate)){
+		            	   heatStressTruePositiveRateValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressFalsePositiveRate)){
+		            	   heatStressFalsePositiveRateValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressPrecision)){
+		            	   heatStressPrecisionValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressAccuracy)){
+		            	   heatStressAccuracyValue = fieldsValues[l].replace("\"", "");
+		               }
 	               } 
            	     
 	               /*Metrics*/
@@ -346,6 +411,10 @@ public class ManageCSV {
 	                   jsonObject.put(ketosisFalsePositiveRate, ketosisFalsePositiveRateValue);
 	                   jsonObject.put(ketosisPrecision, ketosisPrecisionValue);
 	                   jsonObject.put(ketosisAccuracy, ketosisAccuracyValue);
+	                   jsonObject.put(heatStressTruePositiveRate, heatStressTruePositiveRateValue);
+	                   jsonObject.put(heatStressFalsePositiveRate, heatStressFalsePositiveRateValue);
+	                   jsonObject.put(heatStressPrecision, heatStressPrecisionValue);
+	                   jsonObject.put(heatStressAccuracy, heatStressAccuracyValue);
 	                   
 	                   liveStockJsonArray.put(jsonObject);
 	                   jsonObject = new JSONObject();
@@ -399,6 +468,8 @@ public class ManageCSV {
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/13."+identifier);
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/14."+identifier);
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/15."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/16."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/17."+identifier);
                    jsonObject.put("hasMember", hasMemberJsonArray);
                    jsonObject.put("resultTime", resultTime);
                    
@@ -432,6 +503,36 @@ public class ManageCSV {
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationA/3."+identifier);
                    jsonObject.put("hasMember", hasMemberJsonArray);
                    jsonObject.put("observedProperty", livestockFeatureURL+activity);
+                   
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+	     		   hasMemberJsonArray = new JSONArray();
+	     		   
+	     		   /*Rumination properties collection*/
+                   jsonObject.put("@id", "urn:demeter:ObservationCollection/4."+identifier);
+                   jsonObject.put("@type", "ObservationCollection");
+                   jsonObject.put("description", "Rumination properties collection with identifier "+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/1."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/2."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/3."+identifier);
+                   jsonObject.put("hasMember", hasMemberJsonArray);
+                   jsonObject.put("observedProperty", livestockFeatureURL+averageRuminationTime);
+                   
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+	     		   hasMemberJsonArray = new JSONArray();
+	     		   
+	     		   /*Ingestion properties collection*/
+                   jsonObject.put("@id", "urn:demeter:ObservationCollection/5."+identifier);
+                   jsonObject.put("@type", "ObservationCollection");
+                   jsonObject.put("description", "Ingestion properties collection with identifier "+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/1."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/2."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/3."+identifier);
+                   jsonObject.put("hasMember", hasMemberJsonArray);
+                   jsonObject.put("observedProperty", livestockFeatureURL+averageIngestionTime);
                    
                    liveStockJsonArray.put(jsonObject);
                    jsonObject = new JSONObject();
@@ -621,6 +722,22 @@ public class ManageCSV {
                    liveStockJsonArray.put(jsonObject);
                    jsonObject = new JSONObject();
                    
+                   /*Actual Heat Stress*/
+                   jsonObject.put("@id", "urn:demeter:ObservationI/16."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject.put("observedProperty", livestockFeatureURL+actualHeatStress);
+                   jsonObject.put("hasResult", livestockFeatureURL+"healthStatus-"+actualHeatStressValue);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   
+                   /*Predicted Heat Stress*/
+                   jsonObject.put("@id", "urn:demeter:ObservationI/17."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject.put("observedProperty", livestockFeatureURL+predictedHeatStress);
+                   jsonObject.put("hasResult", livestockFeatureURL+"healthStatus-"+predictedHeatStressValue);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   
                    /*Conductivity 1*/
                    jsonObject.put("@id", "urn:demeter:ObservationC/1."+identifier);
                    jsonObject.put("@type", "Observation");
@@ -697,6 +814,90 @@ public class ManageCSV {
                    jsonObject1.put("@id", "urn:demeter:ObservationA/3."+identifier+".r");
                    jsonObject1.put("@type", "QuantityValue");
                    jsonObject1.put("numericValue", activity3Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 1*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/1."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/1."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime1Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 2*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/2."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/2."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime2Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 3*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/3."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/3."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime3Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 1*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/1."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/1."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime1Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 2*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/2."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/2."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime2Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 3*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/3."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/3."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime3Value);
                    jsonObject1.put("unit", "qudt-unit:xyz");
                    hasResultJsonArray.put(jsonObject1);
                    jsonObject.put("hasResult", hasResultJsonArray);
@@ -782,12 +983,20 @@ public class ManageCSV {
         	       String predictedKetosisValue = "";
         	       String actualMastitisValue = "";
         	       String predictedMastitisValue = "";
+        	       String actualHeatStressValue = "";
+        	       String predictedHeatStressValue = "";
         	       String conductivity1Value = "";
         	       String conductivity2Value = "";
         	       String conductivity3Value = "";
         	       String activity1Value = "";
         	       String activity2Value = "";
         	       String activity3Value = "";
+        	       String averageRuminationTime1Value = "";
+        	       String averageRuminationTime2Value = "";
+        	       String averageRuminationTime3Value = "";
+        	       String averageIngestionTime1Value = "";
+        	       String averageIngestionTime2Value = "";
+        	       String averageIngestionTime3Value = "";
         	       String lamenessTruePositiveRateValue = "";
         	       String lamenessFalsePositiveRateValue = "";
         	       String lamenessPrecisionValue = "";
@@ -800,6 +1009,10 @@ public class ManageCSV {
         	       String ketosisFalsePositiveRateValue = "";
         	       String ketosisPrecisionValue = "";
         	       String ketosisAccuracyValue = "";
+        	       String heatStressTruePositiveRateValue = "";
+        	       String heatStressFalsePositiveRateValue = "";
+        	       String heatStressPrecisionValue = "";
+        	       String heatStressAccuracyValue = "";
         	       
         	       /*Recupero i valori dei campi*/
 	               for (int l = 0; l < fieldsValues.length; l++) { 
@@ -858,6 +1071,12 @@ public class ManageCSV {
 		               if (fieldName.equalsIgnoreCase(predictedMastitis)){
 		            	   predictedMastitisValue = fieldsValues[l].replace("\"", "");
 		               }
+		               if (fieldName.equalsIgnoreCase(actualHeatStress)){
+		            	   actualHeatStressValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(predictedHeatStress)){
+		            	   predictedHeatStressValue = fieldsValues[l].replace("\"", "");
+		               }
 		               if (fieldName.equalsIgnoreCase(conductivity1)){
 		            	   conductivity1Value = fieldsValues[l].replace("\"", "");
 		               }
@@ -875,6 +1094,24 @@ public class ManageCSV {
 		               }
 		               if (fieldName.equalsIgnoreCase(activity3)){
 		            	   activity3Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime1)){
+		            	   averageIngestionTime1Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime2)){
+		            	   averageIngestionTime2Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime3)){
+		            	   averageIngestionTime3Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime1)){
+		            	   averageRuminationTime1Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime2)){
+		            	   averageRuminationTime2Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime3)){
+		            	   averageRuminationTime3Value = fieldsValues[l].replace("\"", "");
 		               }
 		               if (fieldName.equalsIgnoreCase(lamenessTruePositiveRate)){
 		            	   lamenessTruePositiveRateValue = fieldsValues[l].replace("\"", "");
@@ -912,6 +1149,18 @@ public class ManageCSV {
 		               if (fieldName.equalsIgnoreCase(ketosisAccuracy)){
 		            	   ketosisAccuracyValue = fieldsValues[l].replace("\"", "");
 		               }
+		               if (fieldName.equalsIgnoreCase(heatStressTruePositiveRate)){
+		            	   heatStressTruePositiveRateValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressFalsePositiveRate)){
+		            	   heatStressFalsePositiveRateValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressPrecision)){
+		            	   heatStressPrecisionValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressAccuracy)){
+		            	   heatStressAccuracyValue = fieldsValues[l].replace("\"", "");
+		               }
 	               } 
            	     
 	               /*Metrics*/
@@ -930,6 +1179,10 @@ public class ManageCSV {
 	                   jsonObject.put(ketosisFalsePositiveRate, ketosisFalsePositiveRateValue);
 	                   jsonObject.put(ketosisPrecision, ketosisPrecisionValue);
 	                   jsonObject.put(ketosisAccuracy, ketosisAccuracyValue);
+	                   jsonObject.put(heatStressTruePositiveRate, heatStressTruePositiveRateValue);
+	                   jsonObject.put(heatStressFalsePositiveRate, heatStressFalsePositiveRateValue);
+	                   jsonObject.put(heatStressPrecision, heatStressPrecisionValue);
+	                   jsonObject.put(heatStressAccuracy, heatStressAccuracyValue);
 	                   
 	                   liveStockJsonArray.put(jsonObject);
 	                   jsonObject = new JSONObject();
@@ -983,6 +1236,8 @@ public class ManageCSV {
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/13."+identifier);
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/14."+identifier);
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/15."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/16."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/17."+identifier);
                    jsonObject.put("hasMember", hasMemberJsonArray);
                    jsonObject.put("resultTime", resultTime);
                    
@@ -1016,6 +1271,36 @@ public class ManageCSV {
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationA/3."+identifier);
                    jsonObject.put("hasMember", hasMemberJsonArray);
                    jsonObject.put("observedProperty", livestockFeatureURL+activity);
+                   
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+	     		   hasMemberJsonArray = new JSONArray();
+	     		   
+	     		   /*Rumination properties collection*/
+                   jsonObject.put("@id", "urn:demeter:ObservationCollection/4."+identifier);
+                   jsonObject.put("@type", "ObservationCollection");
+                   jsonObject.put("description", "Rumination properties collection with identifier "+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/1."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/2."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/3."+identifier);
+                   jsonObject.put("hasMember", hasMemberJsonArray);
+                   jsonObject.put("observedProperty", livestockFeatureURL+averageRuminationTime);
+                   
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+	     		   hasMemberJsonArray = new JSONArray();
+	     		   
+	     		   /*Ingestion properties collection*/
+                   jsonObject.put("@id", "urn:demeter:ObservationCollection/5."+identifier);
+                   jsonObject.put("@type", "ObservationCollection");
+                   jsonObject.put("description", "Ingestion properties collection with identifier "+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/1."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/2."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/3."+identifier);
+                   jsonObject.put("hasMember", hasMemberJsonArray);
+                   jsonObject.put("observedProperty", livestockFeatureURL+averageIngestionTime);
                    
                    liveStockJsonArray.put(jsonObject);
                    jsonObject = new JSONObject();
@@ -1205,6 +1490,22 @@ public class ManageCSV {
                    liveStockJsonArray.put(jsonObject);
                    jsonObject = new JSONObject();
                    
+                   /*Actual Heat Stress*/
+                   jsonObject.put("@id", "urn:demeter:ObservationI/16."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject.put("observedProperty", livestockFeatureURL+actualHeatStress);
+                   jsonObject.put("hasResult", livestockFeatureURL+"healthStatus-"+actualHeatStressValue);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   
+                   /*Predicted Heat Stress*/
+                   jsonObject.put("@id", "urn:demeter:ObservationI/17."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject.put("observedProperty", livestockFeatureURL+predictedHeatStress);
+                   jsonObject.put("hasResult", livestockFeatureURL+"healthStatus-"+predictedHeatStressValue);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   
                    /*Conductivity 1*/
                    jsonObject.put("@id", "urn:demeter:ObservationC/1."+identifier);
                    jsonObject.put("@type", "Observation");
@@ -1281,6 +1582,90 @@ public class ManageCSV {
                    jsonObject1.put("@id", "urn:demeter:ObservationA/3."+identifier+".r");
                    jsonObject1.put("@type", "QuantityValue");
                    jsonObject1.put("numericValue", activity3Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 1*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/1."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/1."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime1Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 2*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/2."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/2."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime2Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 3*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/3."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/3."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime3Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 1*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/1."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/1."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime1Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 2*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/2."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/2."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime2Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 3*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/3."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/3."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime3Value);
                    jsonObject1.put("unit", "qudt-unit:xyz");
                    hasResultJsonArray.put(jsonObject1);
                    jsonObject.put("hasResult", hasResultJsonArray);
@@ -1379,12 +1764,20 @@ public class ManageCSV {
         	       String predictedKetosisValue = "";
         	       String actualMastitisValue = "";
         	       String predictedMastitisValue = "";
+        	       String actualHeatStressValue = "";
+        	       String predictedHeatStressValue = "";
         	       String conductivity1Value = "";
         	       String conductivity2Value = "";
         	       String conductivity3Value = "";
         	       String activity1Value = "";
         	       String activity2Value = "";
         	       String activity3Value = "";
+        	       String averageRuminationTime1Value = "";
+        	       String averageRuminationTime2Value = "";
+        	       String averageRuminationTime3Value = "";
+        	       String averageIngestionTime1Value = "";
+        	       String averageIngestionTime2Value = "";
+        	       String averageIngestionTime3Value = "";
         	       String lamenessTruePositiveRateValue = "";
         	       String lamenessFalsePositiveRateValue = "";
         	       String lamenessPrecisionValue = "";
@@ -1397,6 +1790,10 @@ public class ManageCSV {
         	       String ketosisFalsePositiveRateValue = "";
         	       String ketosisPrecisionValue = "";
         	       String ketosisAccuracyValue = "";
+        	       String heatStressTruePositiveRateValue = "";
+        	       String heatStressFalsePositiveRateValue = "";
+        	       String heatStressPrecisionValue = "";
+        	       String heatStressAccuracyValue = "";
         	       
         	       /*Recupero i valori dei campi*/
 	               for (int l = 0; l < fieldsValues.length; l++) { 
@@ -1455,6 +1852,12 @@ public class ManageCSV {
 		               if (fieldName.equalsIgnoreCase(predictedMastitis)){
 		            	   predictedMastitisValue = fieldsValues[l].replace("\"", "");
 		               }
+		               if (fieldName.equalsIgnoreCase(actualHeatStress)){
+		            	   actualHeatStressValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(predictedHeatStress)){
+		            	   predictedHeatStressValue = fieldsValues[l].replace("\"", "");
+		               }
 		               if (fieldName.equalsIgnoreCase(conductivity1)){
 		            	   conductivity1Value = fieldsValues[l].replace("\"", "");
 		               }
@@ -1472,6 +1875,24 @@ public class ManageCSV {
 		               }
 		               if (fieldName.equalsIgnoreCase(activity3)){
 		            	   activity3Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime1)){
+		            	   averageIngestionTime1Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime2)){
+		            	   averageIngestionTime2Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime3)){
+		            	   averageIngestionTime3Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime1)){
+		            	   averageRuminationTime1Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime2)){
+		            	   averageRuminationTime2Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime3)){
+		            	   averageRuminationTime3Value = fieldsValues[l].replace("\"", "");
 		               }
 		               if (fieldName.equalsIgnoreCase(lamenessTruePositiveRate)){
 		            	   lamenessTruePositiveRateValue = fieldsValues[l].replace("\"", "");
@@ -1509,6 +1930,18 @@ public class ManageCSV {
 		               if (fieldName.equalsIgnoreCase(ketosisAccuracy)){
 		            	   ketosisAccuracyValue = fieldsValues[l].replace("\"", "");
 		               }
+		               if (fieldName.equalsIgnoreCase(heatStressTruePositiveRate)){
+		            	   heatStressTruePositiveRateValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressFalsePositiveRate)){
+		            	   heatStressFalsePositiveRateValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressPrecision)){
+		            	   heatStressPrecisionValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressAccuracy)){
+		            	   heatStressAccuracyValue = fieldsValues[l].replace("\"", "");
+		               }
 	               } 
            	     
 	               /*Metrics*/
@@ -1527,6 +1960,10 @@ public class ManageCSV {
 	                   jsonObject.put(ketosisFalsePositiveRate, ketosisFalsePositiveRateValue);
 	                   jsonObject.put(ketosisPrecision, ketosisPrecisionValue);
 	                   jsonObject.put(ketosisAccuracy, ketosisAccuracyValue);
+	                   jsonObject.put(heatStressTruePositiveRate, heatStressTruePositiveRateValue);
+	                   jsonObject.put(heatStressFalsePositiveRate, heatStressFalsePositiveRateValue);
+	                   jsonObject.put(heatStressPrecision, heatStressPrecisionValue);
+	                   jsonObject.put(heatStressAccuracy, heatStressAccuracyValue);
 	                   
 	                   liveStockJsonArray.put(jsonObject);
 	                   jsonObject = new JSONObject();
@@ -1580,6 +2017,8 @@ public class ManageCSV {
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/13."+identifier);
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/14."+identifier);
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/15."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/16."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/17."+identifier);
                    jsonObject.put("hasMember", hasMemberJsonArray);
                    jsonObject.put("resultTime", resultTime);
                    
@@ -1619,6 +2058,36 @@ public class ManageCSV {
                    jsonObject1 = new JSONObject();
 	     		   hasMemberJsonArray = new JSONArray();
                    
+	     		  /*Rumination properties collection*/
+                   jsonObject.put("@id", "urn:demeter:ObservationCollection/4."+identifier);
+                   jsonObject.put("@type", "ObservationCollection");
+                   jsonObject.put("description", "Rumination properties collection with identifier "+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/1."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/2."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/3."+identifier);
+                   jsonObject.put("hasMember", hasMemberJsonArray);
+                   jsonObject.put("observedProperty", livestockFeatureURL+averageRuminationTime);
+                   
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+	     		   hasMemberJsonArray = new JSONArray();
+	     		   
+	     		   /*Ingestion properties collection*/
+                   jsonObject.put("@id", "urn:demeter:ObservationCollection/5."+identifier);
+                   jsonObject.put("@type", "ObservationCollection");
+                   jsonObject.put("description", "Ingestion properties collection with identifier "+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/1."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/2."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/3."+identifier);
+                   jsonObject.put("hasMember", hasMemberJsonArray);
+                   jsonObject.put("observedProperty", livestockFeatureURL+averageIngestionTime);
+                   
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+	     		   hasMemberJsonArray = new JSONArray();
+	     		   
                    /*Pedometer*/
                    jsonObject.put("@id", "urn:demeter:ObservationI/1."+identifier);
                    jsonObject.put("@type", "Observation");
@@ -1802,6 +2271,22 @@ public class ManageCSV {
                    liveStockJsonArray.put(jsonObject);
                    jsonObject = new JSONObject();
                    
+                   /*Actual Heat Stress*/
+                   jsonObject.put("@id", "urn:demeter:ObservationI/16."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject.put("observedProperty", livestockFeatureURL+actualHeatStress);
+                   jsonObject.put("hasResult", livestockFeatureURL+"healthStatus-"+actualHeatStressValue);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   
+                   /*Predicted Heat Stress*/
+                   jsonObject.put("@id", "urn:demeter:ObservationI/17."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject.put("observedProperty", livestockFeatureURL+predictedHeatStress);
+                   jsonObject.put("hasResult", livestockFeatureURL+"healthStatus-"+predictedHeatStressValue);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   
                    /*Conductivity 1*/
                    jsonObject.put("@id", "urn:demeter:ObservationC/1."+identifier);
                    jsonObject.put("@type", "Observation");
@@ -1878,6 +2363,90 @@ public class ManageCSV {
                    jsonObject1.put("@id", "urn:demeter:ObservationA/3."+identifier+".r");
                    jsonObject1.put("@type", "QuantityValue");
                    jsonObject1.put("numericValue", activity3Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 1*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/1."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/1."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime1Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 2*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/2."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/2."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime2Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 3*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/3."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/3."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime3Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 1*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/1."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/1."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime1Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 2*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/2."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/2."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime2Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 3*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/3."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/3."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime3Value);
                    jsonObject1.put("unit", "qudt-unit:xyz");
                    hasResultJsonArray.put(jsonObject1);
                    jsonObject.put("hasResult", hasResultJsonArray);
@@ -1976,12 +2545,20 @@ public class ManageCSV {
         	       String predictedKetosisValue = "";
         	       String actualMastitisValue = "";
         	       String predictedMastitisValue = "";
+        	       String actualHeatStressValue = "";
+        	       String predictedHeatStressValue = "";
         	       String conductivity1Value = "";
         	       String conductivity2Value = "";
         	       String conductivity3Value = "";
         	       String activity1Value = "";
         	       String activity2Value = "";
         	       String activity3Value = "";
+        	       String averageRuminationTime1Value = "";
+        	       String averageRuminationTime2Value = "";
+        	       String averageRuminationTime3Value = "";
+        	       String averageIngestionTime1Value = "";
+        	       String averageIngestionTime2Value = "";
+        	       String averageIngestionTime3Value = "";
         	       String lamenessTruePositiveRateValue = "";
         	       String lamenessFalsePositiveRateValue = "";
         	       String lamenessPrecisionValue = "";
@@ -1994,6 +2571,10 @@ public class ManageCSV {
         	       String ketosisFalsePositiveRateValue = "";
         	       String ketosisPrecisionValue = "";
         	       String ketosisAccuracyValue = "";
+        	       String heatStressTruePositiveRateValue = "";
+        	       String heatStressFalsePositiveRateValue = "";
+        	       String heatStressPrecisionValue = "";
+        	       String heatStressAccuracyValue = "";
         	       
         	       /*Recupero i valori dei campi*/
 	               for (int l = 0; l < fieldsValues.length; l++) { 
@@ -2052,6 +2633,12 @@ public class ManageCSV {
 		               if (fieldName.equalsIgnoreCase(predictedMastitis)){
 		            	   predictedMastitisValue = fieldsValues[l].replace("\"", "");
 		               }
+		               if (fieldName.equalsIgnoreCase(actualHeatStress)){
+		            	   actualHeatStressValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(predictedHeatStress)){
+		            	   predictedHeatStressValue = fieldsValues[l].replace("\"", "");
+		               }
 		               if (fieldName.equalsIgnoreCase(conductivity1)){
 		            	   conductivity1Value = fieldsValues[l].replace("\"", "");
 		               }
@@ -2069,6 +2656,24 @@ public class ManageCSV {
 		               }
 		               if (fieldName.equalsIgnoreCase(activity3)){
 		            	   activity3Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime1)){
+		            	   averageIngestionTime1Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime2)){
+		            	   averageIngestionTime2Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageIngestionTime3)){
+		            	   averageIngestionTime3Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime1)){
+		            	   averageRuminationTime1Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime2)){
+		            	   averageRuminationTime2Value = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(averageRuminationTime3)){
+		            	   averageRuminationTime3Value = fieldsValues[l].replace("\"", "");
 		               }
 		               if (fieldName.equalsIgnoreCase(lamenessTruePositiveRate)){
 		            	   lamenessTruePositiveRateValue = fieldsValues[l].replace("\"", "");
@@ -2106,6 +2711,18 @@ public class ManageCSV {
 		               if (fieldName.equalsIgnoreCase(ketosisAccuracy)){
 		            	   ketosisAccuracyValue = fieldsValues[l].replace("\"", "");
 		               }
+		               if (fieldName.equalsIgnoreCase(heatStressTruePositiveRate)){
+		            	   heatStressTruePositiveRateValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressFalsePositiveRate)){
+		            	   heatStressFalsePositiveRateValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressPrecision)){
+		            	   heatStressPrecisionValue = fieldsValues[l].replace("\"", "");
+		               }
+		               if (fieldName.equalsIgnoreCase(heatStressAccuracy)){
+		            	   heatStressAccuracyValue = fieldsValues[l].replace("\"", "");
+		               }
 	               } 
            	     
 	               /*Metrics*/
@@ -2124,6 +2741,10 @@ public class ManageCSV {
 	                   jsonObject.put(ketosisFalsePositiveRate, ketosisFalsePositiveRateValue);
 	                   jsonObject.put(ketosisPrecision, ketosisPrecisionValue);
 	                   jsonObject.put(ketosisAccuracy, ketosisAccuracyValue);
+	                   jsonObject.put(heatStressTruePositiveRate, heatStressTruePositiveRateValue);
+	                   jsonObject.put(heatStressFalsePositiveRate, heatStressFalsePositiveRateValue);
+	                   jsonObject.put(heatStressPrecision, heatStressPrecisionValue);
+	                   jsonObject.put(heatStressAccuracy, heatStressAccuracyValue);
 	                   
 	                   liveStockJsonArray.put(jsonObject);
 	                   jsonObject = new JSONObject();
@@ -2177,6 +2798,8 @@ public class ManageCSV {
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/13."+identifier);
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/14."+identifier);
 	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/15."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/16."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationI/17."+identifier);
                    jsonObject.put("hasMember", hasMemberJsonArray);
                    jsonObject.put("resultTime", resultTime);
                    
@@ -2216,6 +2839,36 @@ public class ManageCSV {
                    jsonObject1 = new JSONObject();
 	     		   hasMemberJsonArray = new JSONArray();
                    
+	     		   /*Rumination properties collection*/
+                   jsonObject.put("@id", "urn:demeter:ObservationCollection/4."+identifier);
+                   jsonObject.put("@type", "ObservationCollection");
+                   jsonObject.put("description", "Rumination properties collection with identifier "+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/1."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/2."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationR/3."+identifier);
+                   jsonObject.put("hasMember", hasMemberJsonArray);
+                   jsonObject.put("observedProperty", livestockFeatureURL+averageRuminationTime);
+                   
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+	     		   hasMemberJsonArray = new JSONArray();
+	     		   
+	     		   /*Ingestion properties collection*/
+                   jsonObject.put("@id", "urn:demeter:ObservationCollection/5."+identifier);
+                   jsonObject.put("@type", "ObservationCollection");
+                   jsonObject.put("description", "Ingestion properties collection with identifier "+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/1."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/2."+identifier);
+	    		   hasMemberJsonArray.put("urn:demeter:ObservationIN/3."+identifier);
+                   jsonObject.put("hasMember", hasMemberJsonArray);
+                   jsonObject.put("observedProperty", livestockFeatureURL+averageIngestionTime);
+                   
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+	     		   hasMemberJsonArray = new JSONArray();
+	     		   
                    /*Pedometer*/
                    jsonObject.put("@id", "urn:demeter:ObservationI/1."+identifier);
                    jsonObject.put("@type", "Observation");
@@ -2399,6 +3052,22 @@ public class ManageCSV {
                    liveStockJsonArray.put(jsonObject);
                    jsonObject = new JSONObject();
                    
+                   /*Actual Heat Stress*/
+                   jsonObject.put("@id", "urn:demeter:ObservationI/16."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject.put("observedProperty", livestockFeatureURL+actualHeatStress);
+                   jsonObject.put("hasResult", livestockFeatureURL+"healthStatus-"+actualHeatStressValue);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   
+                   /*Predicted Heat Stress*/
+                   jsonObject.put("@id", "urn:demeter:ObservationI/17."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject.put("observedProperty", livestockFeatureURL+predictedHeatStress);
+                   jsonObject.put("hasResult", livestockFeatureURL+"healthStatus-"+predictedHeatStressValue);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   
                    /*Conductivity 1*/
                    jsonObject.put("@id", "urn:demeter:ObservationC/1."+identifier);
                    jsonObject.put("@type", "Observation");
@@ -2475,6 +3144,90 @@ public class ManageCSV {
                    jsonObject1.put("@id", "urn:demeter:ObservationA/3."+identifier+".r");
                    jsonObject1.put("@type", "QuantityValue");
                    jsonObject1.put("numericValue", activity3Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 1*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/1."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/1."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime1Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 2*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/2."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/2."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime2Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Rumination Time 3*/
+                   jsonObject.put("@id", "urn:demeter:ObservationR/3."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationR/3."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageRuminationTime3Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 1*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/1."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/1."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime1Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 2*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/2."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/2."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime2Value);
+                   jsonObject1.put("unit", "qudt-unit:xyz");
+                   hasResultJsonArray.put(jsonObject1);
+                   jsonObject.put("hasResult", hasResultJsonArray);
+                   liveStockJsonArray.put(jsonObject);
+                   jsonObject = new JSONObject();
+                   jsonObject1 = new JSONObject();
+                   hasResultJsonArray = new JSONArray();
+                   
+                   /*Average Ingestion Time 3*/
+                   jsonObject.put("@id", "urn:demeter:ObservationIN/3."+identifier);
+                   jsonObject.put("@type", "Observation");
+                   jsonObject1.put("@id", "urn:demeter:ObservationIN/3."+identifier+".r");
+                   jsonObject1.put("@type", "QuantityValue");
+                   jsonObject1.put("numericValue", averageIngestionTime3Value);
                    jsonObject1.put("unit", "qudt-unit:xyz");
                    hasResultJsonArray.put(jsonObject1);
                    jsonObject.put("hasResult", hasResultJsonArray);
