@@ -28,6 +28,7 @@ public class Upload extends HttpServlet {
     private String animalWelfarePredictionPrefixFileName;
     private String milkQualityTrainingPrefixFileName;
     private String milkQualityPredictionPrefixFileName;
+    private String milkAnalysisPrefixFileName;
     private File file ;
 	
     private static ResourceBundle properties = ResourceBundle.getBundle("resources/configuration");
@@ -39,6 +40,7 @@ public class Upload extends HttpServlet {
 		animalWelfarePredictionPrefixFileName = properties.getString("demeter.animalWelfarePredictionPrefixFileName");
 		milkQualityTrainingPrefixFileName = properties.getString("demeter.milkQualityTrainingPrefixFileName");
 		milkQualityPredictionPrefixFileName = properties.getString("demeter.milkQualityPredictionPrefixFileName");
+		milkAnalysisPrefixFileName = properties.getString("demeter.milkAnalysisPrefixFileName");
     }
    
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
@@ -72,6 +74,9 @@ public class Upload extends HttpServlet {
 			        }
 			        if (csvFileName.contains(milkQualityPredictionPrefixFileName)){
 			        	csvFolder = new File(csvFolderPath + milkQualityPredictionPrefixFileName);
+			        }
+			        if (csvFileName.contains(milkAnalysisPrefixFileName)){
+			        	csvFolder = new File(csvFolderPath + milkAnalysisPrefixFileName);
 			        }
 			        csvFolder.mkdir();
 			        if (storage.equalsIgnoreCase("Y")){
