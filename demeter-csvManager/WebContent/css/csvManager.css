@@ -1,5 +1,50 @@
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.buttonSelect {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+  border-radius: 12px;
+  font-size:30px;
+  text-align: center;
+}
+.buttonClearList {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  border-radius: 12px;
+  font-size:30px;
+}
+.buttonUpload {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  font-size:30px;
+  margin-left: -50px;
+}
+.buttonClearReport {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  border-radius: 12px;
+  font-size:30px;
+  margin-left:110px;
+}
+
 .uploadTitle {
-    padding: 6px 58px;
+    padding: 76px 58px;
 }
 .reportTitle {
     padding: 6px 76px;
