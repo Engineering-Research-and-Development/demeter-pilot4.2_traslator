@@ -1,9 +1,61 @@
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.header {
+  background-color: #4AC3C1;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.footer {
+  background-color: #F7F7F7;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-3 {width: 25%;}
+  .col-s-6 {width: 50%;}  
+  .col-s-9 {width: 75%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-3 {width: 25%;}
+  .col-6 {width: 50%;}
+  .col-9 {width: 75%;}
+  .col-12 {width: 100%;}
+}
+
 .button {
   background-color: #4CAF50;
   border: none;
   color: white;
   padding: 15px 32px;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
@@ -17,7 +69,6 @@
   border: 2px solid #008CBA;
   border-radius: 12px;
   font-size:30px;
-  text-align: center;
 }
 .buttonClearList {
   background-color: white;
@@ -32,7 +83,6 @@
   border: 2px solid #4CAF50;
   border-radius: 12px;
   font-size:30px;
-  margin-left: -50px;
 }
 .buttonClearReport {
   background-color: white;
@@ -40,49 +90,4 @@
   border: 2px solid #e7e7e7;
   border-radius: 12px;
   font-size:30px;
-  margin-left:110px;
-}
-
-.uploadTitle {
-    padding: 76px 58px;
-}
-.reportTitle {
-    padding: 6px 76px;
-    margin-left: 80;
-}
-input[type="file"] {
-    display: none;
-}
-.uploadFileLabel {
-    border: 1px solid #ccc;
-    background: #DDDD;
-    padding: 6px 66px;
-    cursor: pointer;
-    border-radius: .25rem;
-    
-}
-.submitForm {
-    border: 1px solid #ccc;
-    color: #fff;
-    background: #0069D9;
-    padding: 6px 16px;
-    cursor: pointer;
-    border-radius: .25rem;
-    
-}
-.clearFileList {
-    border: 1px solid #ccc;
-    background: #E2E2E2;
-    padding: 6px 16px;
-    cursor: pointer;
-    border-radius: .25rem;
-    
-}
-.clearReport {
-    border: 1px solid #ccc;
-    background: #E2E2E2;
-    padding: 6px 66px;
-    cursor: pointer;
-    border-radius: .25rem;
-    margin-left: 80;
 }
