@@ -10,8 +10,10 @@
 		<h2>Files must start with :</h2>	
 		<h3>
 			<ul style="text-align:left;">
-		      <li>AW_ for Animal Welfare</li>
-		      <li>MQ_ for Milk Quality</li>
+		      <li>AWT_ for Animal Welfare Training</li>
+		      <li>AWP_ for Animal Welfare Prediction</li>
+		      <li>MQT_ for Milk Quality Training</li>
+		      <li>MQP_ for Milk Quality Prediction</li>
 		      <li>MA_ for Milk Analysis</li>
 		    </ul>
 	    </h3>
