@@ -39,6 +39,7 @@ public class ManageCSV {
 	private static String animalWelfarePredictionPrefixFileName = properties.getString("demeter.animalWelfarePredictionPrefixFileName");
 	private static String milkQualityTrainingPrefixFileName = properties.getString("demeter.milkQualityTrainingPrefixFileName");
 	private static String milkQualityPredictionPrefixFileName = properties.getString("demeter.milkQualityPredictionPrefixFileName");
+	private static String milkAnalysisPrefixFileName = properties.getString("demeter.milkAnalysisPrefixFileName");
 	
 	private static String date = properties.getString("demeter.date");
 	
@@ -4725,5 +4726,33 @@ public class ManageCSV {
 		   return "File Not Found !";
 		}
         return jsonld.toString().replace("\\", "");
+	}
+	
+	/**
+	 * Get Milk Analysis CSV
+	 * 
+	 * @return
+	 */
+	public File getMilkAnalysisCSV() throws Exception {
+		
+		
+		File csvFolder = new File(csvFolderPath + milkAnalysisPrefixFileName);
+        
+		File csvFolderFileList = new File(csvFolder.getPath());
+		File[] csvListOfFiles = csvFolderFileList.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.isFile();
+            }
+        });
+        
+        try {
+			Arrays.sort(csvListOfFiles, LastModifiedFileComparator.LASTMODIFIED_REVERSE);
+			return csvListOfFiles[0];
+		} catch (NullPointerException e1) {
+			return null;
+		}
+        
+    	
 	}
 }

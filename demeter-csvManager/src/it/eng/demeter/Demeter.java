@@ -1,5 +1,6 @@
 package it.eng.demeter;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.ws.rs.Consumes;
@@ -155,5 +156,22 @@ public class Demeter {
 			e.printStackTrace();
 		}
 		return Response.ok(jsonArray, MediaType.APPLICATION_JSON).build();
+	}
+	@GET
+	@Path("/getCSV/v1/GetMilkAnalysisCSV")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getMilkAnalysisCSV() {
+		File csv = null;
+		try { 
+			csv = ManageCSV.getInstance().getMilkAnalysisCSV();
+		} catch (JsonProcessingException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Response.ok(csv, MediaType.APPLICATION_JSON).build();
 	}
 }
