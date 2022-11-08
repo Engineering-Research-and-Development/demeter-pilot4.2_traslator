@@ -4,13 +4,18 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 import org.apache.commons.io.comparator.LastModifiedFileComparator;
 import org.apache.commons.logging.Log;
@@ -4735,9 +4740,7 @@ public class ManageCSV {
 	 */
 	public File getMilkAnalysisCSV() throws Exception {
 		
-		
 		File csvFolder = new File(csvFolderPath + milkAnalysisPrefixFileName);
-        
 		File csvFolderFileList = new File(csvFolder.getPath());
 		File[] csvListOfFiles = csvFolderFileList.listFiles(new FileFilter() {
             @Override
@@ -4748,7 +4751,222 @@ public class ManageCSV {
         
         try {
 			Arrays.sort(csvListOfFiles, LastModifiedFileComparator.LASTMODIFIED_REVERSE);
-			return csvListOfFiles[0];
+			
+			String name = "";
+	        String extension = "";
+	        name = csvListOfFiles[0].getName().split("\\.")[0];
+	        extension = csvListOfFiles[0].getName().split("\\.")[1];
+	        
+			File csvOrderedFolder = new File(csvFolderPath + milkAnalysisPrefixFileName + "/" + name + "_ordered." + extension);
+			File csvOrderedFile = new File(csvOrderedFolder.getPath());
+			FileWriter fileWriter = new FileWriter(csvOrderedFile);
+			
+			String date = "";
+	        String time = "";
+	        String productName = "";
+	        String comments = "";
+	        String sampleId = "";
+	        String replyN = "";
+	        String aciditySH = "";
+	        String casein = "";
+	        String density = "";
+	        String descale = "";
+	        String fat = "";
+	        String fpd = "";
+	        String freezingPoint = "";
+	        String lacticAcid = "";
+	        String lactose = "";
+	        String lowLactose = "";
+	        String protein = "";
+	        String snf = "";
+	        String ts = "";
+	        String urea = "";
+	        String zFat = "";
+	        String zLactose = "";
+	        String zOs = "";
+	        String zProtein = "";
+	        String remark = "";
+	        String cbt = "";
+	        String ccs = "";			
+	        
+			InputStream targetStream = new FileInputStream(csvListOfFiles[0]);
+			BufferedReader br = new BufferedReader(new InputStreamReader(targetStream)); 
+			String[] fieldsNames = br.readLine().split(separator);
+			String line = ""; 
+			String[] header = { "Date", separator, "Time", separator, "ProductName", separator,  "Comments", separator,  "SampleId", separator,  "ReplyN", 
+						        separator,  "AciditySH", separator,  "Casein", separator,  "Density", separator,  "Descale", separator,  "Fat", separator,  "FPD-mC", 
+						        separator,  "FreezingPointmC", separator,  "LacticAcid", separator,  "Lactose", separator,  "LowLactose", separator,  "Protein", 
+						        separator,  "SNF", separator,  "TS", separator,  "Urea-mgL", separator,  "Z-Fat", separator,  "Z-Lactose", separator,  "Z-OS", 
+						        separator,  "Z-Protein", separator,  "Remark", separator,  "CBT", separator,  "CCS"};
+			Stream.of(header).forEach(e -> {try {fileWriter.append(e);} catch (IOException e1) {e1.printStackTrace();}});
+			fileWriter.append("\n");
+			
+			while ((line = br.readLine()) != null) {
+	        	   String fieldName = "";
+	        	   String[] fieldsValues = line.split(separator);   
+	       	       for (int l = 0; l < fieldsValues.length; l++) {
+	       	    	    fieldName = fieldsNames[l].replace("\"", "").replace("/", "").replace(" ", "").replaceAll("[^\\p{ASCII}]", "");
+	       	    	    if (fieldName.equalsIgnoreCase("Date")){
+	       	    		   date = fieldsValues[l].replace("\"", "");
+	       	    	    }
+		       	    	if (fieldName.equalsIgnoreCase("Time")){
+		       	    	   time = fieldsValues[l].replace("\"", "");
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("ProductName")){
+		       	    	   productName = fieldsValues[l].replace("\"", "");
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Comments")){
+		       	    	   comments = fieldsValues[l].replace("\"", "");
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("SampleId")){
+		       	    	   sampleId = fieldsValues[l].replace("\"", "");
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("ReplyN")){
+		       	    	   replyN = fieldsValues[l].replace("\"", "");
+		       	    	   if (replyN.isEmpty()) {
+		       	    		   replyN = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("AciditySH")){
+		       	    	   aciditySH = fieldsValues[l].replace("\"", "");
+		       	    	   if (aciditySH.isEmpty()) {
+		       	    		   aciditySH = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Casein")){
+		       	    		casein = fieldsValues[l].replace("\"", "");
+		       	    		if (casein.isEmpty()) {
+		       	    			casein = "0";
+			       	        }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Density")){
+		       	    	   density = fieldsValues[l].replace("\"", "");
+		       	    	   if (density.isEmpty()) {
+		       	    		   density = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Descale")){
+		       	    	   descale = fieldsValues[l].replace("\"", "");
+		       	    	   if (descale.isEmpty()) {
+		       	    		   descale = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Fat")){
+		       	    	   fat = fieldsValues[l].replace("\"", "");
+		       	    	   if (fat.isEmpty()) {
+		       	    		   fat = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("FPD-mC")){
+		       	    	   fpd = fieldsValues[l].replace("\"", "");
+		       	    	   if (fpd.isEmpty()) {
+		       	    		   fpd = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("FreezingPointmC")){
+		       	    	   freezingPoint = fieldsValues[l].replace("\"", "");
+		       	    	   if (freezingPoint.isEmpty()) {
+		       	    		   freezingPoint = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("LacticAcid")){
+		       	    	   lacticAcid = fieldsValues[l].replace("\"", "");
+		       	    	   if (lacticAcid.isEmpty()) {
+		       	    		   lacticAcid = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Lactose")){
+		       	    	   lactose = fieldsValues[l].replace("\"", "");
+		       	    	   if (lactose.isEmpty()) {
+		       	    		   lactose = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("LowLactose")){
+		       	    	   lowLactose = fieldsValues[l].replace("\"", "");
+		       	    	   if (lowLactose.isEmpty()) {
+		       	    		   lowLactose = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Protein")){
+			       	   	   protein = fieldsValues[l].replace("\"", "");
+			       	   	   if (protein.isEmpty()) {
+		       	    		   protein = "0";
+		       	    	   }
+			       	   	}
+		       	    	if (fieldName.equalsIgnoreCase("SNF")){
+		       	    	   snf = fieldsValues[l].replace("\"", "");
+		       	    	   if (snf.isEmpty()) {
+		       	    		   snf = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("TS")){
+		       	    	   ts = fieldsValues[l].replace("\"", "");
+		       	    	   if (ts.isEmpty()) {
+		       	    		   ts = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Urea-mgL")){
+		       	    	   urea = fieldsValues[l].replace("\"", "");
+		       	    	   if (urea.isEmpty()) {
+		       	    		   urea = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Z-Fat")){
+		       	    	   zFat = fieldsValues[l].replace("\"", "");
+		       	    	   if (zFat.isEmpty()) {
+		       	    		   zFat = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Z-Lactose")){
+		       	    	   zLactose = fieldsValues[l].replace("\"", "");
+		       	    	   if (zLactose.isEmpty()) {
+		       	    		   zLactose = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Z-OS")){
+		       	    	   zOs = fieldsValues[l].replace("\"", "");
+		       	    	   if (zOs.isEmpty()) {
+		       	    		   zOs = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Z-Protein")){
+		       	    	   zProtein = fieldsValues[l].replace("\"", "");
+		       	    	   if (zProtein.isEmpty()) {
+		       	    		   zProtein = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("Remark")){
+		       	    	   remark = fieldsValues[l].replace("\"", "");
+		       	    	   if (remark.isEmpty()) {
+		       	    		   remark = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("CBT")){
+		       	    	   cbt = fieldsValues[l].replace("\"", "");
+		       	    	   if (cbt.isEmpty()) {
+		       	    		   cbt = "0";
+		       	    	   }
+		       	    	}
+		       	    	if (fieldName.equalsIgnoreCase("CCS")){
+		       	    	   ccs = fieldsValues[l].replace("\"", "");
+		       	    	   if (ccs.isEmpty()) {
+		       	    		   ccs = "0";
+		       	    	   }
+		       	    	}
+	       	       }	
+	       	     
+	       	       String[] values = { date,  separator, time,  separator, productName,  separator, comments,  separator, sampleId,  
+	       	    		   separator, replyN,  separator, aciditySH,  separator, casein,  separator, density,  separator, descale,  
+	       	    		   separator, fat,  separator, fpd,  separator, freezingPoint,  separator, lacticAcid,  separator, lactose,  
+	       	    		   separator, lowLactose,  separator, protein,  separator, snf,  separator, ts,  separator, urea,  separator, zFat, 
+	       	    		   separator, zLactose,  separator, zOs,  separator, zProtein,  separator, remark,  separator, cbt,  separator, ccs};	       	       
+	       	       Stream.of(values).forEach(e -> {try {fileWriter.append(e);} catch (IOException e1) {e1.printStackTrace();}});
+	       	       fileWriter.append("\n"); 
+			}
+	          
+			fileWriter.close();
+			/* return csvListOfFiles[0]; */
+	        return csvOrderedFile;
 		} catch (NullPointerException e1) {
 			return null;
 		}
