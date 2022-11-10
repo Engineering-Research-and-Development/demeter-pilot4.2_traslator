@@ -10,6 +10,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -4969,8 +4971,34 @@ public class ManageCSV {
 	        return csvOrderedFile;
 		} catch (NullPointerException e1) {
 			return null;
-		}
-        
-    	
+		}	
+	}
+	
+	/**
+	 * Delete Milk Analysis ordered CSV
+	 * 
+	 * @return
+	 */
+	public void deleteMilkAnalysisOrderedCSV()  {
+		
+		File csvFolder = new File(csvFolderPath + milkAnalysisPrefixFileName);
+		File csvFolderFileList = new File(csvFolder.getPath());
+		File[] csvListOfFiles = csvFolderFileList.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.isFile();
+            }
+        });
+		Arrays.sort(csvListOfFiles, LastModifiedFileComparator.LASTMODIFIED_REVERSE);
+		String name = "";
+	    String extension = "";
+	    name = csvListOfFiles[0].getName().split("\\.")[0];
+	    extension = csvListOfFiles[0].getName().split("\\.")[1];	
+		String fileName = csvFolderPath + milkAnalysisPrefixFileName + "/" + name + "." + extension;
+	    try {
+	        Files.delete(Paths.get(fileName));
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
 }

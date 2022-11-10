@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -169,6 +170,17 @@ public class Demeter {
 			e1.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Response.ok(csv, MediaType.APPLICATION_JSON).build();
+	}
+	@DELETE
+	@Path("/deleteCSV/v1/DeleteMilkAnalysisOrderedCSV")
+	public Response deleteMilkAnalysisOrderedCSV() {
+		File csv = null;
+		try { 
+			ManageCSV.getInstance().deleteMilkAnalysisOrderedCSV(); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
