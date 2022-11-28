@@ -4995,8 +4995,10 @@ public class ManageCSV {
 	    name = csvListOfFiles[0].getName().split("\\.")[0];
 	    extension = csvListOfFiles[0].getName().split("\\.")[1];	
 		String fileName = csvFolderPath + milkAnalysisPrefixFileName + "/" + name + "." + extension;
-	    try {
-	        Files.delete(Paths.get(fileName));
+		try {
+			if (fileName.contains("ordered")) {  
+				Files.delete(Paths.get(fileName));
+			}
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
