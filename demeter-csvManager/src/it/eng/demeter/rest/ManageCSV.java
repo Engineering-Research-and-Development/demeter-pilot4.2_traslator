@@ -4740,7 +4740,7 @@ public class ManageCSV {
 	 * 
 	 * @return
 	 */
-	public File getMilkAnalysisCSV() throws Exception {
+	public synchronized File getMilkAnalysisCSV() throws Exception {
 		
 		File csvFolder = new File(csvFolderPath + milkAnalysisPrefixFileName);
 		File csvFolderFileList = new File(csvFolder.getPath());
@@ -4979,7 +4979,7 @@ public class ManageCSV {
 	 * 
 	 * @return
 	 */
-	public void deleteMilkAnalysisOrderedCSV()  {
+	public synchronized void deleteMilkAnalysisOrderedCSV()  {
 		
 		File csvFolder = new File(csvFolderPath + milkAnalysisPrefixFileName);
 		File csvFolderFileList = new File(csvFolder.getPath());
